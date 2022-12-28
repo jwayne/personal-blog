@@ -1,9 +1,12 @@
-import { Fragment } from "react";
-import Head from "next/head";
-import { getDatabase, getPage, getBlocks } from "../lib/notion";
-import Link from "next/link";
-import { databaseId } from "./index.js";
+import { databaseId } from "../index.js";
 import styles from "./post.module.css";
+import FormattedDate from "components/date";
+import Layout from "components/layout";
+import { getDatabase, getPage, getBlocks } from "lib/notion";
+import Head from "next/head";
+import Link from "next/link";
+import { Fragment } from "react";
+import utilStyles from "styles/utils.module.css";
 
 export const Text = ({ text }) => {
   if (!text) {
@@ -161,26 +164,26 @@ export default function Post({ page, blocks }) {
     return <div />;
   }
   return (
-    <div>
+    <Layout>
       <Head>
         <title>{page.properties.Name.title[0].plain_text}</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <article className={styles.container}>
-        <h1 className={styles.name}>
+      <article>
+        <h1 className={utilStyles.headingXl}>
           <Text text={page.properties.Name.title} />
         </h1>
-        <section>
+        <div className={utilStyles.lightText}>
+          <FormattedDate dateString={page.last_edited_time} />
+        </div>
+
+        <section className={styles.container}>
           {blocks.map((block) => (
             <Fragment key={block.id}>{renderBlock(block)}</Fragment>
           ))}
-          <Link href="/" className={styles.back}>
-            ← Go home
-          </Link>
         </section>
       </article>
-    </div>
+    </Layout>
   );
 }
 
