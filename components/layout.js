@@ -25,7 +25,21 @@ export default function Layout({ children, isHome }) {
 
       <header className={styles.header}>
         <div className={styles.headerBar}>
-          <Link href="/">Home</Link>
+          <div className={styles.headerBarLeft}>
+            <Link href="/">Home</Link>
+            <Link href="/">Blog</Link>
+            <Link href="https://frogger.joshchen.co/">Frogger</Link>
+          </div>
+          {/* <div className={styles.headerBarRight}>
+            <Link href="https://twitter.com/jwaynechen">
+              <Image
+                src="/images/twitter.png"
+                height={28}
+                width={28}
+                alt="Twitter"
+              />
+            </Link>
+          </div> */}
         </div>
 
         {isHome ? (

@@ -13,15 +13,22 @@
 .headerBar {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
 
   border-bottom: 1px solid #eee;
   padding-bottom: 2px;
   margin-bottom: 24px;
+  
+  .headerBarLeft, .headerBarRight {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
   a {
-    padding: 4px 8px;
+    padding: 4px 16px;
     color: #777;
   }
 

@@ -22,12 +22,10 @@ export default function Home({ posts }) {
 
       <section className={utilStyles.headingMd}>
         <p>
-          Hey, I'm <b>Josh</b>. I'm interested in startups, investing, and
-          engineering.
-        </p>
-        <p>
-          I plan to explore this and a variety of life topics from first
-          principles on this site.
+          Hey, I'm <b>Josh</b>. I'm interested in startups, engineering, and
+          investing. I'm currently working on{" "}
+          <Link href="https://opal.dev">Opal</Link>, and I previously founded{" "}
+          <Link href="https://basis.io">Basis</Link>.
         </p>
         <p>
           It's been{" "}
